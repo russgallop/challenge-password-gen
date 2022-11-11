@@ -24,30 +24,23 @@ function generatePassword(useUpperCase, useLowerCase, useNum, useSpecial, passwo
   // lenSpecialChar = specchar.length;
 
   charactersToUse = [];
-
-  // console.log(charactersToUse);
-  
+  console.log(charactersToUse);  
 
   // 'push' to append an item to end of the array
-
-
 
   if (useUpperCase == true) {
     charactersToUse.push(...upper);
   }
-
   if (useUpperCase == true) {
     charactersToUse.push(...lower);
   }
-
   if (useUpperCase == true) {
     charactersToUse.push(...number);
   }
-
   if (useUpperCase == true) {
     charactersToUse.push(...specchar);
   }
-
+  console.log(charactersToUse);
   // need to get the length of the 'charactersToUse array to get random elements from the array
 
   numberOfCharaters = charactersToUse.length;
@@ -57,12 +50,11 @@ function generatePassword(useUpperCase, useLowerCase, useNum, useSpecial, passwo
   randomCharValue = Math.floor(Math.random() * numberOfCharaters)
   console.log(randomCharValue);
   randomChar = charactersToUse[randomCharValue]
-  password += randomChar
+  //password += randomChar
   }
 
   console.log(password);
   writePassword(password);
-
 }
 
 // Password length between 8 and 128 charaters.
@@ -90,23 +82,17 @@ function userInput() {
       success = false;
     }
   }
-
   if (success == true) {
     generatePassword(useUpperCase, useLowerCase, useNum, useSpecial, passwordLen);
   }
-
 }
-
-
-
 // Write password to the #password input
-function writePassword() {
-  
-  var passwordText = document.querySelector("#password");
-  var password = generatePassword();
+function writePassword() {  
+var passwordText = document.querySelector("#password");
+  // var password = generatePassword();
   passwordText.value = password;
 }
 
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", userInput);
